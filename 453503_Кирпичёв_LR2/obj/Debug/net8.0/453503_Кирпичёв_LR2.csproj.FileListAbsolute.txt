@@ -12,3 +12,4 @@ d:\Documents\453503\ООП\453503_Кирпичёв_LR2\453503_Кирпичёв_L
 d:\Documents\453503\ООП\453503_Кирпичёв_LR2\453503_Кирпичёв_LR2\obj\Debug\net8.0\453503_Кирпичёв_LR2.pdb
 d:\Documents\453503\ООП\453503_Кирпичёв_LR2\453503_Кирпичёв_LR2\obj\Debug\net8.0\453503_Кирпичёв_LR2.genruntimeconfig.cache
 d:\Documents\453503\ООП\453503_Кирпичёв_LR2\453503_Кирпичёв_LR2\obj\Debug\net8.0\ref\453503_Кирпичёв_LR2.dll
+D:\Documents\453503\ООП\453503_Кирпичёв_LR2\453503_Кирпичёв_LR2\obj\Debug\net8.0\453503_Кирпичёв_LR2.sourcelink.json

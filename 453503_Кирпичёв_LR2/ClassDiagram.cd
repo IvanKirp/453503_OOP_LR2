@@ -3,56 +3,42 @@
   <Class Name="_453503_Кирпичёв_LR2.Book" Collapsed="true">
     <Position X="5.75" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>QAAAAAAAAAAAAEAAgAAAAIAAAAAAAAAAAAAAAIABAAA=</HashCode>
+      <HashCode>QAAAAAAIAAAAAEAAgAAAAIAAAAAAAAAAAAAAAMAJAAA=</HashCode>
       <FileName>Book.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="_453503_Кирпичёв_LR2.BookCard" Collapsed="true">
     <Position X="5.75" Y="1.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAQAAAQAAAAAAAAAAAIAAAAAAkAAAAAAAgAAAAAg=</HashCode>
+      <HashCode>AAAAAQAAAQAAAAEAAAgAAIAAAAAAkBAAAAAAgAAAAAg=</HashCode>
       <FileName>BookCard.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="_453503_Кирпичёв_LR2.Bookshelf" Collapsed="true">
     <Position X="4" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAIBAAAAAAAAAAAAQAAAAAAAAAAAAAAAEQIABAAA=</HashCode>
+      <HashCode>AAAAAIBAAAAAAAAAAAAQAIAAAGAAAAAAAAAEWIABAAA=</HashCode>
       <FileName>Bookshelf.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="_453503_Кирпичёв_LR2.Librarian" Collapsed="true">
-    <Position X="0.5" Y="1.75" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAIAgAAAAAEAAAAAAAAABAAAEAAAAAAA=</HashCode>
-      <FileName>Librarian.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="_453503_Кирпичёв_LR2.Library" Collapsed="true">
-    <Position X="0.5" Y="0.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAACAAAGAAAAAEABAAAAQAAAAACAACAAAAEBAAAAA=</HashCode>
-      <FileName>Library.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="_453503_Кирпичёв_LR2.LibraryCard" Collapsed="true">
     <Position X="5.75" Y="2.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>IAAUAAAAAAAgAAAAAAgAAAAAAAAAAAABAAAAAAAAAAA=</HashCode>
+      <HashCode>IQAEAAAIAAAgAAAAAAgAAAAAIAAAAAABAAAAAAAAAAA=</HashCode>
       <FileName>LibraryCard.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="_453503_Кирпичёв_LR2.Reader" Collapsed="true">
     <Position X="2.25" Y="1.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAQAIAAAAAAgAAABECAAAAAAAAAIAAAAAA=</HashCode>
+      <HashCode>AAAAEAQAAAAQAIAAAABAgAAABECAAAAAAABAIAAQAAA=</HashCode>
       <FileName>Reader.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="_453503_Кирпичёв_LR2.ReadingRoom" Collapsed="true">
     <Position X="2.25" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAIAAAABAAAEAAAAAAAEQCAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAIAAAABAggEAAAAAAAEQCAAAAAAAAAgAAAAAAAAA=</HashCode>
       <FileName>ReadingRoom.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -61,6 +47,20 @@
     <TypeIdentifier>
       <HashCode>AAAAAAAAAQAAEAAAAAAAAAAACACAAAAAAAAAAAgAAAA=</HashCode>
       <FileName>Subscription.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="_453503_Кирпичёв_LR2.Librarian" Collapsed="true">
+    <Position X="0.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAIAiAAAAAkAAAAAAAAABAABEAAAAAAA=</HashCode>
+      <FileName>Librarian.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="_453503_Кирпичёв_LR2.Library" Collapsed="true">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAACAAAGAAAAAEABAAAAQAAAAACAACAAAAEBAAAAA=</HashCode>
+      <FileName>Library.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Font Name="Segoe UI" Size="9" />

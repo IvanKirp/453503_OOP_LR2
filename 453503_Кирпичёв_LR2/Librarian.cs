@@ -14,15 +14,30 @@
 
         public void ProcessCheckout(string readerFullName, string bookDescription)
         {
-            Console.WriteLine($"Библиотекарь {FullName} оформляет выдачу книги '{bookDescription}' читателю {readerFullName}");
+            FormatCheckoutMessage(readerFullName, bookDescription);
         }
 
         public void ProcessReturn(string readerFullName, string bookDescription)
         {
-            Console.WriteLine($"Библиотекарь {FullName} принимает книгу '{bookDescription}' от читателя {readerFullName}");
+            FormatReturnMessage(readerFullName, bookDescription);
         }
 
         public void AddNewBook(string title, string author)
+        {
+            FormatAddBookMessage(title, author);
+        }
+
+        private void FormatCheckoutMessage(string reader, string book)
+        {
+            Console.WriteLine($"Библиотекарь {FullName} оформляет выдачу книги '{book}' читателю {reader}");
+        }
+
+        private void FormatReturnMessage(string reader, string book)
+        {
+            Console.WriteLine($"Библиотекарь {FullName} принимает книгу '{book}' от читателя {reader}");
+        }
+
+        private void FormatAddBookMessage(string title, string author)
         {
             Console.WriteLine($"Библиотекарь {FullName} добавляет новую книгу '{title}, {author}'");
         }

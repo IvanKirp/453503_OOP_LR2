@@ -14,15 +14,19 @@
 
         public void AddBook(string bookDescription)
         {
-            _bookDescriptions.Add(bookDescription);
-            Console.WriteLine($"Книга '{bookDescription}' добавлена в каталог {Name}");
+            if (IsBookNotAdded(bookDescription))
+            {
+                _bookDescriptions.Add(bookDescription);
+                BookAdded(bookDescription);
+            }
         }
 
         public void RemoveBook(string bookDescription)
         {
-            if (_bookDescriptions.Remove(bookDescription))
+            if (IsBookExists(bookDescription))
             {
-                Console.WriteLine($"Книга '{bookDescription}' удалена из каталога {Name}");
+                _bookDescriptions.Remove(bookDescription);
+                BookRemoved(bookDescription);
             }
         }
 
@@ -38,11 +42,37 @@
 
         public void ShowAllBooks()
         {
-            Console.WriteLine($"Все книги в каталоге {Name}:");
+            Console.WriteLine(FormatAllBooksList());
+        }
+
+        private bool IsBookNotAdded(string book)
+        {
+            return !_bookDescriptions.Contains(book);
+        }
+
+        private bool IsBookExists(string book)
+        {
+            return _bookDescriptions.Contains(book);
+        }
+
+        private void BookAdded(string book)
+        {
+            Console.WriteLine($"Книга '{book}' добавлена в каталог {Name}");
+        }
+
+        private void BookRemoved(string book)
+        {
+            Console.WriteLine($"Книга '{book}' удалена из каталога {Name}");
+        }
+
+        private string FormatAllBooksList()
+        {
+            string result = $"Все книги в каталоге {Name}:";
             foreach (var desc in _bookDescriptions)
             {
-                Console.WriteLine($"- {desc}");
+                result += $"\n- {desc}";
             }
+            return result;
         }
     }
 }

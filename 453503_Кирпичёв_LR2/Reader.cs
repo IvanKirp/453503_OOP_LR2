@@ -16,15 +16,19 @@
 
         public void BorrowBook(string bookDescription)
         {
-            _borrowedBookDescriptions.Add(bookDescription);
-            Console.WriteLine($"{FullName} взял книгу: {bookDescription}");
+            if (CanBorrowBook(bookDescription))
+            {
+                _borrowedBookDescriptions.Add(bookDescription);
+                BookBorrowed(bookDescription);
+            }
         }
 
         public void ReturnBook(string bookDescription)
         {
-            if (_borrowedBookDescriptions.Remove(bookDescription))
+            if (CanReturnBook(bookDescription))
             {
-                Console.WriteLine($"{FullName} вернул книгу: {bookDescription}");
+                _borrowedBookDescriptions.Remove(bookDescription);
+                BookReturned(bookDescription);
             }
         }
 
@@ -35,11 +39,37 @@
 
         public void ShowBorrowedBooks()
         {
-            Console.WriteLine($"Книги на руках у {FullName}:");
+            Console.WriteLine(FormatBooksList());
+        }
+
+        private bool CanBorrowBook(string book)
+        {
+            return !string.IsNullOrWhiteSpace(book);
+        }
+
+        private bool CanReturnBook(string book)
+        {
+            return _borrowedBookDescriptions.Contains(book);
+        }
+
+        private void BookBorrowed(string book)
+        {
+            Console.WriteLine($"{FullName} взял книгу: {book}");
+        }
+
+        private void BookReturned(string book)
+        {
+            Console.WriteLine($"{FullName} вернул книгу: {book}");
+        }
+
+        private string FormatBooksList()
+        {
+            string result = $"Книги на руках у {FullName}:";
             foreach (var desc in _borrowedBookDescriptions)
             {
-                Console.WriteLine($"- {desc}");
+                result += $"\n- {desc}";
             }
+            return result;
         }
     }
 }

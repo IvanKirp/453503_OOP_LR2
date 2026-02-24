@@ -22,30 +22,74 @@
 
         public void HireLibrarian(string librarianFullName)
         {
-            _librarianNames.Add(librarianFullName);
-            Console.WriteLine($"Библиотекарь {librarianFullName} принят на работу");
+            if (IsLibrarianNotHired(librarianFullName))
+            {
+                _librarianNames.Add(librarianFullName);
+                LibrarianHired(librarianFullName);
+            }
         }
 
         public void RegisterReader(string readerFullName)
         {
-            _readerNames.Add(readerFullName);
-            Console.WriteLine($"Читатель {readerFullName} зарегистрирован в библиотеке");
+            if (IsReaderNotRegistered(readerFullName))
+            {
+                _readerNames.Add(readerFullName);
+                ReaderRegistered(readerFullName);
+            }
         }
 
         public void AddReadingRoom(string roomName)
         {
-            _readingRoomNames.Add(roomName);
-            Console.WriteLine($"В библиотеку добавлен читальный зал '{roomName}'");
+            if (IsRoomNotAdded(roomName))
+            {
+                _readingRoomNames.Add(roomName);
+                RoomAdded(roomName);
+            }
         }
 
         public void ShowLibraryInfo()
         {
-            Console.WriteLine($"\nИнформация о библиотеке '{Name}'");
-            Console.WriteLine($"Адрес: {Address}");
-            Console.WriteLine($"Сотрудники: {string.Join(", ", _librarianNames)}");
-            Console.WriteLine($"Читатели: {string.Join(", ", _readerNames)}");
-            Console.WriteLine($"Каталог: {CatalogName}");
-            Console.WriteLine($"Читальные залы: {string.Join(", ", _readingRoomNames)}");
+            Console.WriteLine(FormatLibraryInfo());
+        }
+
+        private bool IsLibrarianNotHired(string librarian)
+        {
+            return !_librarianNames.Contains(librarian);
+        }
+
+        private bool IsReaderNotRegistered(string reader)
+        {
+            return !_readerNames.Contains(reader);
+        }
+
+        private bool IsRoomNotAdded(string room)
+        {
+            return !_readingRoomNames.Contains(room);
+        }
+
+        private void LibrarianHired(string librarian)
+        {
+            Console.WriteLine($"Библиотекарь {librarian} принят на работу");
+        }
+
+        private void ReaderRegistered(string reader)
+        {
+            Console.WriteLine($"Читатель {reader} зарегистрирован в библиотеке");
+        }
+
+        private void RoomAdded(string room)
+        {
+            Console.WriteLine($"В библиотеку добавлен читальный зал '{room}'");
+        }
+
+        private string FormatLibraryInfo()
+        {
+            return $"\nИнформация о библиотеке '{Name}'\n" +
+                   $"Адрес: {Address}\n" +
+                   $"Сотрудники: {string.Join(", ", _librarianNames)}\n" +
+                   $"Читатели: {string.Join(", ", _readerNames)}\n" +
+                   $"Каталог: {CatalogName}\n" +
+                   $"Читальные залы: {string.Join(", ", _readingRoomNames)}";
         }
     }
 }

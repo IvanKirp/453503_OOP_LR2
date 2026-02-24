@@ -16,15 +16,19 @@
 
         public void PlaceBook(string bookDescription)
         {
-            _bookDescriptions.Add(bookDescription);
-            Console.WriteLine($"Книга '{bookDescription}' размещена на полке {ShelfNumber}");
+            if (IsBookNotOnShelf(bookDescription))
+            {
+                _bookDescriptions.Add(bookDescription);
+                BookPlaced(bookDescription);
+            }
         }
 
         public void RemoveBook(string bookDescription)
         {
-            if (_bookDescriptions.Remove(bookDescription))
+            if (IsBookOnShelf(bookDescription))
             {
-                Console.WriteLine($"Книга '{bookDescription}' убрана с полки {ShelfNumber}");
+                _bookDescriptions.Remove(bookDescription);
+                BookRemoved(bookDescription);
             }
         }
 
@@ -35,11 +39,37 @@
 
         public void ListBooksOnShelf()
         {
-            Console.WriteLine($"Книги на полке {ShelfNumber} (секция '{Section}'):");
+            Console.WriteLine(FormatBooksOnShelfList());
+        }
+
+        private bool IsBookNotOnShelf(string book)
+        {
+            return !_bookDescriptions.Contains(book);
+        }
+
+        private bool IsBookOnShelf(string book)
+        {
+            return _bookDescriptions.Contains(book);
+        }
+
+        private void BookPlaced(string book)
+        {
+            Console.WriteLine($"Книга '{book}' размещена на полке {ShelfNumber}");
+        }
+
+        private void BookRemoved(string book)
+        {
+            Console.WriteLine($"Книга '{book}' убрана с полки {ShelfNumber}");
+        }
+
+        private string FormatBooksOnShelfList()
+        {
+            string result = $"Книги на полке {ShelfNumber} (секция '{Section}'):";
             foreach (var desc in _bookDescriptions)
             {
-                Console.WriteLine($"- {desc}");
+                result += $"\n- {desc}";
             }
+            return result;
         }
     }
 }

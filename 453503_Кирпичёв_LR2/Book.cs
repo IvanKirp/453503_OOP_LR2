@@ -18,11 +18,29 @@
 
         public void SetAvailability(bool status)
         {
-            IsAvailable = status;
-            Console.WriteLine($"Статус доступности книги '{BookDescription}' изменён на: {(status ? "доступна" : "недоступна")}");
+            if (HasStatusChanged(status))
+            {
+                IsAvailable = status;
+                StatusChange(status);
+            }
         }
 
         public string GetBookInfo()
+        {
+            return FormatBookInfo();
+        }
+
+        private bool HasStatusChanged(bool newStatus)
+        {
+            return IsAvailable != newStatus;
+        }
+
+        private void StatusChange(bool status)
+        {
+            Console.WriteLine($"Статус доступности книги '{BookDescription}' изменён на: {(status ? "доступна" : "недоступна")}");
+        }
+
+        private string FormatBookInfo()
         {
             return $"Книга: {BookDescription}, Доступна: {IsAvailable}";
         }

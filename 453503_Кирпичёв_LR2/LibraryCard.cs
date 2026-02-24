@@ -13,30 +13,39 @@
             ReaderFullName = readerFullName;
             IssueDate = issueDate;
             ExpiryDate = issueDate.AddYears(1);
-            Console.WriteLine($"Оформлен читательский билет {CardNumber} для {ReaderFullName}");
         }
 
         public bool IsValid()
         {
-            return DateTime.Now <= ExpiryDate;
+            return !IsExpired();
         }
 
         public void CheckValidity()
         {
-            if (IsValid())
-            {
-                Console.WriteLine($"Билет {CardNumber} для {ReaderFullName} действителен до {ExpiryDate.ToShortDateString()}");
-            }
-            else
+            if (IsExpired())
             {
                 Console.WriteLine($"Билет {CardNumber} для {ReaderFullName} просрочен");
             }
+            else
+            {
+                Console.WriteLine($"Билет {CardNumber} для {ReaderFullName} действителен " +
+                                $"ещё {GetDaysUntilExpiry()} дней");
+            }
         }
 
-        public void RenewCard()
+        private bool IsExpired()
         {
-            ExpiryDate = DateTime.Now.AddYears(1);
-            Console.WriteLine($"Билет №{CardNumber} для {ReaderFullName} продлён до {ExpiryDate.ToShortDateString()}");
+            return DateTime.Now > ExpiryDate;
+        }
+
+        private int GetDaysUntilExpiry()
+        {
+            return (ExpiryDate - DateTime.Now).Days;
+        }
+
+        private string GetCardStatus()
+        {
+            return IsExpired() ? "просрочен" : "действителен";
         }
     }
 }

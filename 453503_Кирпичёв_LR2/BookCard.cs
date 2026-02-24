@@ -18,8 +18,11 @@
 
         public void AddToHistory(string readerFullName)
         {
-            _readerFullNames.Add(readerFullName);
-            Console.WriteLine($"Читатель {readerFullName} добавлен в историю книги '{BookDescription}'");
+            if (IsReaderNotInHistory(readerFullName))
+            {
+                _readerFullNames.Add(readerFullName);
+                NotifyReaderAdded(readerFullName);
+            }
         }
 
         public List<string> GetReaderHistory()
@@ -29,11 +32,27 @@
 
         public void ShowHistory()
         {
-            Console.WriteLine($"История выдачи книги '{BookDescription}':");
+            Console.WriteLine(FormatBookHistory());
+        }
+
+        private bool IsReaderNotInHistory(string reader)
+        {
+            return !_readerFullNames.Contains(reader);
+        }
+
+        private void NotifyReaderAdded(string reader)
+        {
+            Console.WriteLine($"Читатель {reader} добавлен в историю книги '{BookDescription}'");
+        }
+
+        private string FormatBookHistory()
+        {
+            string result = $"История выдачи книги '{BookDescription}':";
             foreach (var readerName in _readerFullNames)
             {
-                Console.WriteLine($"- {readerName}");
+                result += $"\n- {readerName}";
             }
+            return result;
         }
     }
 }
